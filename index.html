@@ -119,7 +119,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 
 <div class="header">
   <div><h1>Relatório Fisioterapia</h1><p>Cardiorrespiratória · Domiciliar</p></div>
-  <button class="btn-pdf" id="btnTopo" type="button">&#128196; Gerar PDF</button>
+  <button class="btn-pdf" id="btnTopo" type="button" onclick="gerarPDF()">&#128196; Gerar PDF</button>
 </div>
 <div class="progress-bar"><div class="progress-fill" id="progFill"></div></div>
 
@@ -369,8 +369,8 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
   <textarea id="dados_adicionais" placeholder="Ex: Oriento DRR em domicílio, retorno em 48h..."></textarea>
 </div>
 
-<button class="btn-gerar" id="btnBase" type="button">&#128196; Gerar PDF</button>
-<button class="btn-limpar" id="btnLimpar" type="button">&#128465; Limpar formulário</button>
+<button class="btn-gerar" id="btnBase" type="button" onclick="gerarPDF()">&#128196; Gerar PDF</button>
+<button class="btn-limpar" id="btnLimpar" type="button" onclick="limparForm()">&#128465; Limpar formulário</button>
 
 </div><!-- fim .app -->
 
@@ -397,8 +397,7 @@ document.addEventListener('DOMContentLoaded', function() {
       atualizarProgresso();
       return;
     }
-    if (e.target.id === 'btnTopo' || e.target.id === 'btnBase') { gerarPDF(); }
-    if (e.target.id === 'btnLimpar') { limparForm(); }
+
   });
   document.querySelectorAll('input,textarea,select').forEach(function(el){
     el.addEventListener('input', atualizarProgresso);
